@@ -26,12 +26,6 @@ class Solution:
                     
             return -1
         
-        if len(nums) > 1:
-            bileft = binsearch(nums, target, True)
-            biright = binsearch(nums, target, False)
-        else:
-            if target not in nums:
-                return [-1,-1]
-            else:
-                return [0,0]
+        bileft = binsearch(nums, target, True)
+        biright = binsearch(nums, target, False)
         return [bileft, biright]
