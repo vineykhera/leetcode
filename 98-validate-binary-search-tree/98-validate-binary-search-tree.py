@@ -10,7 +10,7 @@ class Solution:
             if not node:
                 return True
             if node.val > minval and node.val < maxval:
-                return isvalid(node.left, minval, min(node.val, maxval)) and isvalid(node.right, max(minval,node.val), maxval)   
+                return isvalid(node.left, minval, node.val) and isvalid(node.right, node.val, maxval)   
             else:
                 return False
             
