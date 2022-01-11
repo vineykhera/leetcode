@@ -23,13 +23,13 @@ class Solution:
         for n in numset:
             # saven = n
             
-            if n-1 not in numset:
+            if n+1 not in numset:
                 ans = 1
                 saven = n
 
-                while saven+1 in numset:
+                while saven-1 in numset:
                     ans +=1
-                    saven = saven+1
+                    saven = saven-1
                     # visited.add(n)
 
                 maxnum = max(ans, maxnum)
