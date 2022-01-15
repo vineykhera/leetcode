@@ -21,14 +21,17 @@ class Solution:
 #         helper1(root, out)
 #         return out
     
-        res, stack = [], [(root, False)]
-        while stack:
-            node, visited = stack.pop()  # the last element
+        out = []
+        st = []
+        st.append((root, False))
+        while st:
+            node, visited = st.pop()
             if node:
                 if visited:
-                    res.append(node.val)
-                else:  # inorder: left -> root -> right
-                    stack.append((node.right, False))
-                    stack.append((node, True))
-                    stack.append((node.left, False))
-        return res
+                    out.append(node.val)
+                else:
+                    st.append((node.right, False))
+                    st.append((node, True))
+                    st.append((node.left, False))
+        # print(out)
+        return out
