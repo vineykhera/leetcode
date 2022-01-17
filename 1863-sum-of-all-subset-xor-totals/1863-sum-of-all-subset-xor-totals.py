@@ -14,7 +14,7 @@ class Solution:
         
         def subsets(start, result):
             cursum = 0
-            print("Subset", result)
+            # print("Subset", result)
             for n in result:
                 cursum ^= n
             self.output += cursum
