@@ -1,9 +1,9 @@
 class Solution:
     def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
-        if sum(nums) % k != 0:
+        if sum(nums) % k:
             return False
         nums.sort(reverse=True)
-        target = sum(nums) // k
+        target = sum(nums) / k
         used = [False] * len(nums)
         
         def backtrack(strt, k, pathsum):
