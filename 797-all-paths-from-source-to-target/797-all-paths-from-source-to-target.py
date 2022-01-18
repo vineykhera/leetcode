@@ -24,7 +24,7 @@ class Solution:
         
         def backtrack(strt, path):
             if strt == len(graph)-1:
-                res.append(path)
+                res.append(path[:])
             else:    
             # for i in range(strt, n):
                 for j in graph[strt]:
