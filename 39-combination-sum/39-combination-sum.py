@@ -25,6 +25,6 @@ class Solution:
                         backtrack(i, path+[candidates[i]])
         
         strt = 0
-        candidates.sort()    
+        # candidates.sort()    
         backtrack(strt, [])
         return res
