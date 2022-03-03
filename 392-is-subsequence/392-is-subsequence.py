@@ -17,7 +17,7 @@ class Solution:
             return False
         # if len(s)
         while j <= len(t) - 1 and i <= len(s)-1 :
-            print(i,j)
+            # print(i,j)
             if t[j] == s[i]:
                 # print("match",s[i], j)                
                 i += 1
