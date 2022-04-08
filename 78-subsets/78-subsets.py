@@ -13,36 +13,24 @@ choice
 recurse helper ( curr+1)
 undo my choice
 
-def subsets(self, nums: List[int]) -> List[List[int]]:
-        res = []
-        self.backtracking(res,0,[],nums)
-        return res
-    
-    def backtracking(self,res,start,subset,nums):
-        res.append(list(subset))
-        for i in range(start,len(nums)):
-            subset.append(nums[i])
-            self.backtracking(res,i+1,subset,nums)
-            subset.pop()
+
 
 """
 
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
-        
         out = []
-        
-        def helper(nums, path, cur):
-            # print("path", path)
+
+        def helper(nums, path, cur, out):
             if cur == len(nums):
                 out.append(path)
-                return out
+                return 
             
             # for i in range(cur, len(nums)):
-            helper(nums, path+[nums[cur]],cur+1)
-            helper(nums, path, cur+1)
+            helper(nums, path+[nums[cur]],cur+1, out)
+            helper(nums, path, cur+1, out)
             
             
-        helper(nums, [], 0)
+        helper(nums, [], 0, out)
         return out
         
