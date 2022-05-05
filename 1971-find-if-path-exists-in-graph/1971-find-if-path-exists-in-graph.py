@@ -24,12 +24,13 @@ class Solution(object):
         while que:
             node = que.popleft()
             visited.add(node)
-            if destination in dic[node]:
-                return True
-            else:
-                for n in dic[node]:
-                    if n not in visited:
-                        que.append(n)
+
+            for n in dic[node]:
+                if n == destination:
+                    return True
+
+                if n not in visited:
+                    que.append(n)
                         
         return False
                 
