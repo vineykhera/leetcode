@@ -21,15 +21,27 @@ class Solution(object):
             dic[i].append(j)
             dic[j].append(i)
         
-        while que:
-            node = que.popleft()
-            visited.add(node)
+#         while que:
+#             node = que.popleft()
+#             visited.add(node)
+#             if node == destination:
+#                 return True
+
+#             for n in dic[node]:        
+#                 if n not in visited:
+#                     que.append(n)
+                        
+#         return False
+                
+        stack = [source]
+        
+        while stack:
+            node = stack.pop()
             if node == destination:
                 return True
-
-            for n in dic[node]:        
+            visited.add(node)
+            for n in dic[node]:
                 if n not in visited:
-                    que.append(n)
-                        
+                    stack.append(n)
         return False
-                
+        
