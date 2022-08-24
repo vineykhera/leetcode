@@ -57,18 +57,30 @@
 #         # print(memo)
 #         # return memo[amount]
 
-class Solution:
-    def coinChange(self, coins: List[int], amount: int) -> int:            
-        def coinChangeInner(rem, cache):
-            if rem < 0:
-                return math.inf
-            if rem == 0:                    
-                return 0       
-            if rem in cache:
-                return cache[rem]
+# class Solution:
+#     def coinChange(self, coins: List[int], amount: int) -> int:            
+#         def coinChangeInner(rem, cache):
+#             if rem < 0:
+#                 return math.inf
+#             if rem == 0:                    
+#                 return 0       
+#             if rem in cache:
+#                 return cache[rem]
             
-            cache[rem] = min(coinChangeInner(rem-x, cache) + 1 for x in coins)                         
-            return cache[rem]      
+#             cache[rem] = min(coinChangeInner(rem-x, cache) + 1 for x in coins)                         
+#             return cache[rem]      
         
-        ans = coinChangeInner(amount, {})
-        return -1 if ans == math.inf else ans          
+#         ans = coinChangeInner(amount, {})
+#         return -1 if ans == math.inf else ans     
+
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:   
+        
+        dp = [math.inf] * (amount+1)
+        dp[0] = 0
+        
+        for c in coins:
+            for x in range(c, amount+1):
+                dp[x] = min(dp[x],dp[x-c] + 1)
+        
+        return -1 if dp[-1] == math.inf else dp[-1]
