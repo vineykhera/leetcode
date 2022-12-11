@@ -2,6 +2,7 @@ class Solution:
     def restoreArray(self, adjacentPairs: List[List[int]]) -> List[int]:
         ans = []
         seen = set()
+        st = []
         graph = defaultdict(list)
         for x,y in adjacentPairs:
             graph[x].append(y)
@@ -11,15 +12,17 @@ class Solution:
             if len(graph[u]) == 1:
                 cur = u
                 break
+        st = [cur]
         
-        while cur != None:
+        while st:
+            cur = st.pop()
             seen.add(cur)
             ans.append(cur)
             neig = graph[cur]
-            cur = None
+            # cur = None
             for n in neig:
                 if n not in seen:
-                    cur = n
+                    st.append(n)
             
         return ans
         
