@@ -7,7 +7,5 @@ class Solution:
             ordst = "".join(ordst)
    
             dic[ordst].append(st)
-        out = []
-        for v in dic.values():
-            out.append(v)
-        return out
+        return dic.values()
+
