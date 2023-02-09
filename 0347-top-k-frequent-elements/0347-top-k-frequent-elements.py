@@ -20,11 +20,12 @@ class Solution(object):
         """
         heaparr = []
         cntnums = collections.Counter(nums)
-        heaparr = [(cnt,n) for n, cnt in cntnums.items()]
+        #heaparr = [(cnt,n) for n, cnt in cntnums.items()]
         
-        heapq.heapify(heaparr)
+        #heapq.heapify(heaparr)
 
-        for i in range(len(heaparr) - k):
+        for n,cnt in cntnums.items():
+            heapq.heappush(heaparr, (cnt, n))
             if len(heaparr) > k:
                 heapq.heappop(heaparr)
         
